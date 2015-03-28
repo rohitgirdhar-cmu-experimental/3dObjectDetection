@@ -1,3 +1,6 @@
 [submodule "caffe"]
 	path = caffe
 	url = git@github.com:rohitgirdhar-cmu-experimental/caffe-3dobjdet.git
+[submodule "rcnn"]
+	path = rcnn
+	url = git@github.com:rohitgirdhar-cmu-experimental/rcnn.git
