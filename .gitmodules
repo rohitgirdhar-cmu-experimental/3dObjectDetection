@@ -1,0 +1,3 @@
+[submodule "caffe"]
+	path = caffe
+	url = git@github.com:rohitgirdhar-cmu-experimental/caffe-3dobjdet.git
