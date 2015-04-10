@@ -250,11 +250,11 @@ layer {
   bottom: "pool5"
   top: "fc6-3d"
   param {
-    lr_mult: 10
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 20
+    lr_mult: 2
     decay_mult: 0
   }
   inner_product_param {
@@ -285,57 +285,16 @@ layer {
   }
 }
 layer {
-  name: "fc7-3d"
-  type: "InnerProduct"
-  bottom: "fc6-3d"
-  top: "fc7-3d"
-  # Note that lr_mult can be set to 0 to disable any fine-tuning of this, and any other, layer
-  param {
-    lr_mult: 10
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
-  inner_product_param {
-    num_output: 4096
-    weight_filler {
-      type: "gaussian"
-      std: 0.005
-    }
-    bias_filler {
-      type: "constant"
-      value: 1
-    }
-  }
-}
-layer {
-  name: "relu7-3d"
-  type: "ReLU"
-  bottom: "fc7-3d"
-  top: "fc7-3d"
-}
-layer {
-  name: "drop7-3d"
-  type: "Dropout"
-  bottom: "fc7-3d"
-  top: "fc7-3d"
-  dropout_param {
-    dropout_ratio: 0.5
-  }
-}
-layer {
   name: "fc8-3d"
   type: "InnerProduct"
-  bottom: "fc7-3d"
+  bottom: "fc6-3d"
   top: "fc8-3d"
   param {
-    lr_mult: 10
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 20
+    lr_mult: 2
     decay_mult: 0
   }
   inner_product_param {
@@ -369,119 +328,7 @@ layer {
   bottom: "reshape_coarse_global"
   bottom: "label3d"
   top: "loss-3d"
-}
-layer {
-  name: "fc6-class"
-  type: "InnerProduct"
-  bottom: "pool5"
-  top: "fc6-class"
-  param {
-    lr_mult: 10
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
-  inner_product_param {
-    num_output: 4096
-    weight_filler {
-      type: "gaussian"
-      std: 0.005
-    }
-    bias_filler {
-      type: "constant"
-      value: 1
-    }
-  }
-}
-layer {
-  name: "relu6-class"
-  type: "ReLU"
-  bottom: "fc6-class"
-  top: "fc6-class"
-}
-layer {
-  name: "drop6-class"
-  type: "Dropout"
-  bottom: "fc6-class"
-  top: "fc6-class"
-  dropout_param {
-    dropout_ratio: 0.5
-  }
-}
-layer {
-  name: "fc7-class"
-  type: "InnerProduct"
-  bottom: "fc6-class"
-  top: "fc7-class"
-  # Note that lr_mult can be set to 0 to disable any fine-tuning of this, and any other, layer
-  param {
-    lr_mult: 10
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
-  inner_product_param {
-    num_output: 4096
-    weight_filler {
-      type: "gaussian"
-      std: 0.005
-    }
-    bias_filler {
-      type: "constant"
-      value: 1
-    }
-  }
-}
-layer {
-  name: "relu7-class"
-  type: "ReLU"
-  bottom: "fc7-class"
-  top: "fc7-class"
-}
-layer {
-  name: "drop7-class"
-  type: "Dropout"
-  bottom: "fc7-class"
-  top: "fc7-class"
-  dropout_param {
-    dropout_ratio: 0.5
-  }
-}
-layer {
-  name: "fc8-class"
-  type: "InnerProduct"
-  bottom: "fc7-class"
-  top: "fc8-class"
-  param {
-    lr_mult: 10
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
-  inner_product_param {
-    num_output: 6
-    weight_filler {
-      type: "gaussian"
-      std: 0.01
-    }
-    bias_filler {
-      type: "constant"
-      value: 0
-    }
-  }
-}
-layer {
-  name: "loss-cls"
-  type: "SoftmaxWithLoss"
-  bottom: "fc8-class"
-  bottom: "labelclass"
-  top: "loss-cls"
+  loss_weight: 1
 }
 
 
