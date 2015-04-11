@@ -1,6 +1,6 @@
 import sys, os
 import numpy as np
-import Image, ImageDraw
+import cv2
 
 outdir = '/srv2/rgirdhar/Work/Code/0004_GeoObjDet/data/Features/nyu_finetune_onlypos/'
 outdir = '/srv2/rgirdhar/Work/Code/0004_GeoObjDet/data/Features/nyu_finetune/'
@@ -19,15 +19,14 @@ lines = f.read().splitlines()
 f.close()
 drawboxes = []
 
-I = Image.open(os.path.join(imgsdir, sys.argv[1] + '.jpg'))
-draw = ImageDraw.Draw(I)
+I = cv2.imread(os.path.join(imgsdir, sys.argv[1] + '.jpg'))
 
 i = 0
 for line in lines:
   elts = [float(el) for el in line.split()]
   order = np.argsort(np.array(elts))
   if order[-1] == CLS:
-    box = [(boxes[i][1], boxes[i][0]), (boxes[i][3], boxes[i][2])]
-    draw.rectangle(box)
+    box = [(int(boxes[i][1]), int(boxes[i][0])), (int(boxes[i][3]), int(boxes[i][2]))]
+    cv2.rectangle(I, box[0], box[1], (255,0,0), 2)
   i += 1
-I.save("temp.png", "PNG")
+cv2.imwrite("temp.jpg", I)
