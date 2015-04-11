@@ -7,6 +7,9 @@ outdir = '/srv2/rgirdhar/Work/Code/0004_GeoObjDet/data/Features/nyu_finetune/'
 imgsdir = '/srv2/rgirdhar/Work/Code/0004_GeoObjDet/data/JPEGImages/'
 selboxdir = '/srv2/rgirdhar/Work/Code/0004_GeoObjDet/data/nyu_selsearch_boxes_txt/'
 
+clses =  ['bed', 'chair', 'mtv', 'sofa', 'table']
+CLS = 2
+
 boxes = np.loadtxt(os.path.join(selboxdir, sys.argv[1] + '.txt'),
     delimiter=',')
 
@@ -23,7 +26,7 @@ i = 0
 for line in lines:
   elts = [float(el) for el in line.split()]
   order = np.argsort(np.array(elts))
-  if order[-1] == 5:
+  if order[-1] == CLS:
     box = [(boxes[i][1], boxes[i][0]), (boxes[i][3], boxes[i][2])]
     draw.rectangle(box)
   i += 1
