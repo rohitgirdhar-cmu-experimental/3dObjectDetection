@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotation>
+   <folder>NYU</folder>
+   <filename>593.jpg</filename>
+   <size>
+      <width>640</width>
+      <height>480</height>
+      <depth>3</depth>
+   </size>
+   <segmented>1</segmented>
+   <object>
+      <name>sofa</name>
+      <bndbox>
+         <xmin>10</xmin>
+         <ymin>205</ymin>
+         <xmax>454</xmax>
+         <ymax>477</ymax>
+      </bndbox>
+   </object>
+   <object>
+      <name>sofa</name>
+      <bndbox>
+         <xmin>515</xmin>
+         <ymin>186</ymin>
+         <xmax>635</xmax>
+         <ymax>332</ymax>
+      </bndbox>
+   </object>
+   <object>
+      <name>table</name>
+      <bndbox>
+         <xmin>433</xmin>
+         <ymin>252</ymin>
+         <xmax>635</xmax>
+         <ymax>476</ymax>
+      </bndbox>
+   </object>
+</annotation>

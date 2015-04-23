@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotation>
+   <folder>NYU</folder>
+   <filename>248.jpg</filename>
+   <size>
+      <width>640</width>
+      <height>480</height>
+      <depth>3</depth>
+   </size>
+   <segmented>1</segmented>
+   <object>
+      <name>chair</name>
+      <bndbox>
+         <xmin>9</xmin>
+         <ymin>298</ymin>
+         <xmax>80</xmax>
+         <ymax>346</ymax>
+      </bndbox>
+   </object>
+   <object>
+      <name>chair</name>
+      <bndbox>
+         <xmin>256</xmin>
+         <ymin>290</ymin>
+         <xmax>385</xmax>
+         <ymax>430</ymax>
+      </bndbox>
+   </object>
+   <object>
+      <name>chair</name>
+      <bndbox>
+         <xmin>406</xmin>
+         <ymin>290</ymin>
+         <xmax>520</xmax>
+         <ymax>404</ymax>
+      </bndbox>
+   </object>
+   <object>
+      <name>sofa</name>
+      <bndbox>
+         <xmin>10</xmin>
+         <ymin>322</ymin>
+         <xmax>195</xmax>
+         <ymax>476</ymax>
+      </bndbox>
+   </object>
+</annotation>
